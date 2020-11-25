@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet } from '../index';
+import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet, toggleWidget } from '../index';
 import { addUserMessage } from '..';
 
 export default class App extends Component {
@@ -9,6 +9,7 @@ export default class App extends Component {
     addLinkSnippet({ link: 'https://google.com', title: 'Google' });
     addResponseMessage('![](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)');
     addResponseMessage('![vertical](https://d2sofvawe08yqg.cloudfront.net/reintroducing-react/hero2x?1556470143)');
+    toggleWidget();
   }
 
   handleNewUserMessage = (newMessage: any) => {
@@ -16,7 +17,7 @@ export default class App extends Component {
     setTimeout(() => {
       toggleMsgLoader();
       if (newMessage === 'fruits') {
-        setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' } ]);
+        setQuickButtons([{ label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' }]);
       } else {
         addResponseMessage(newMessage);
       }
@@ -29,7 +30,7 @@ export default class App extends Component {
   }
 
   handleSubmit = (msgText: string) => {
-    if(msgText.length < 80) {
+    if (msgText.length < 80) {
       addUserMessage("Uh oh, please write a bit more.");
       return false;
     }
@@ -39,7 +40,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <button style={{position: 'absolute', right: 40, bottom: 150}}>test</button>
+        <button style={{ position: 'absolute', right: 40, bottom: 150 }}>test</button>
         <Widget
           title="Bienvenido"
           subtitle="Asistente virtual"
@@ -48,6 +49,7 @@ export default class App extends Component {
           handleQuickButtonClicked={this.handleQuickButtonClicked}
           imagePreview
           handleSubmit={this.handleSubmit}
+          fullScreenMode={true}
         />
       </div>
     );
