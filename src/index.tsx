@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 
 import Widget from './components/Widget';
 
-import store from  './store';
+import store from './store';
 
 import { AnyFunction } from './utils/types';
 
@@ -16,6 +16,7 @@ type Props = {
   senderPlaceHolder?: string;
   showCloseButton?: boolean;
   fullScreenMode?: boolean;
+  webMode?: boolean;
   autofocus?: boolean;
   profileAvatar?: string;
   launcher?: AnyFunction;
@@ -37,6 +38,7 @@ function ConnectedWidget({
   senderPlaceHolder,
   showCloseButton,
   fullScreenMode,
+  webMode,
   autofocus,
   profileAvatar,
   launcher,
@@ -64,6 +66,7 @@ function ConnectedWidget({
         profileAvatar={profileAvatar}
         showCloseButton={showCloseButton}
         fullScreenMode={fullScreenMode}
+        webMode={webMode}
         autofocus={autofocus}
         customLauncher={launcher}
         handleTextInputChange={handleTextInputChange}
@@ -86,6 +89,7 @@ const defaultProps = {
   senderPlaceHolder: 'Type a message...',
   showCloseButton: true,
   fullScreenMode: false,
+  webMode: false,
   autofocus: true,
   chatId: 'rcw-chat-container',
   launcherOpenLabel: 'Open chat',

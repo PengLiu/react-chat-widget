@@ -40,7 +40,6 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <button style={{ position: 'absolute', right: 40, bottom: 150 }}>test</button>
         <Widget
           title="Bienvenido"
           subtitle="Asistente virtual"
@@ -50,6 +49,7 @@ export default class App extends Component {
           imagePreview
           handleSubmit={this.handleSubmit}
           fullScreenMode={true}
+          // webMode={true}
         />
       </div>
     );

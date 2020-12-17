@@ -26,6 +26,7 @@ type Props = {
   onTextInputChange?: (event: any) => void;
   sendButtonAlt: string;
   showTimeStamp: boolean;
+  webMode: boolean;
 };
 
 function Conversation({
@@ -43,29 +44,62 @@ function Conversation({
   onQuickButtonClicked,
   onTextInputChange,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  webMode
 }: Props) {
-  return (
-    <div className={cn('rcw-conversation-container', className)} aria-live="polite">
-      <Header
-        title={title}
-        subtitle={subtitle}
-        toggleChat={toggleChat}
-        showCloseButton={showCloseButton}
-        titleAvatar={titleAvatar}
-      />
-      <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
-      <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      <Sender
-        sendMessage={sendMessage}
-        placeholder={senderPlaceHolder}
-        disabledInput={disabledInput}
-        autofocus={autofocus}
-        onTextInputChange={onTextInputChange}
-        buttonAlt={sendButtonAlt}
-      />
-    </div>
-  );
+
+  if (webMode) {
+    return (
+      <div className={cn('rcw-conversation-container', className)} aria-live="polite">
+        <Header
+          title={title}
+          subtitle={subtitle}
+          toggleChat={toggleChat}
+          showCloseButton={showCloseButton}
+          titleAvatar={titleAvatar}
+        />
+        <div className="rcw-main-wrapper">
+          <div className="rcw-left-sidebar">
+            <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
+            <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
+            <Sender
+              sendMessage={sendMessage}
+              placeholder={senderPlaceHolder}
+              disabledInput={disabledInput}
+              autofocus={autofocus}
+              onTextInputChange={onTextInputChange}
+              buttonAlt={sendButtonAlt}
+            />
+          </div>
+          <div className="rcw-right-sidebar">
+            <img className="rcw-custom-logo" height={200} />
+          </div>
+        </div>
+      </div>
+    )
+  } else {
+    return (
+      <div className={cn('rcw-conversation-container', className)} aria-live="polite">
+        <Header
+          title={title}
+          subtitle={subtitle}
+          toggleChat={toggleChat}
+          showCloseButton={showCloseButton}
+          titleAvatar={titleAvatar}
+        />
+        <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
+        <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
+        <Sender
+          sendMessage={sendMessage}
+          placeholder={senderPlaceHolder}
+          disabledInput={disabledInput}
+          autofocus={autofocus}
+          onTextInputChange={onTextInputChange}
+          buttonAlt={sendButtonAlt}
+        />
+      </div>
+    );
+  }
 }
 
 export default Conversation;

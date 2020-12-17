@@ -2,6 +2,23 @@
 @import 'variables/colors';
 @import 'animation';
 
+.rcw-main-wrapper {
+  width: 100%;
+}
+
+.rcw-left-sidebar {
+  float: left;
+  width: 80%;
+}
+
+.rcw-right-sidebar {
+  float: left;
+}
+
+.rcw-custom-logo {
+  background-image: url('../../../../../assets/logo.jpg');
+}
+
 .rcw-conversation-container {
   border-radius: 10px;
   box-shadow: 0px 2px 10px 1px $grey-3;

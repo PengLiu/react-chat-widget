@@ -23,6 +23,7 @@ type Props = {
   profileAvatar?: string;
   showCloseButton: boolean;
   fullScreenMode: boolean;
+  webMode: boolean;
   autofocus: boolean;
   customLauncher?: AnyFunction;
   onTextInputChange?: (event: any) => void;
@@ -46,6 +47,7 @@ function WidgetLayout({
   profileAvatar,
   showCloseButton,
   fullScreenMode,
+  webMode,
   autofocus,
   customLauncher,
   onTextInputChange,
@@ -116,6 +118,7 @@ function WidgetLayout({
     >
       {showChat &&
         <Conversation
+          webMode={webMode}
           title={title}
           subtitle={subtitle}
           sendMessage={onSendMessage}
