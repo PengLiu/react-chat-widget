@@ -49,7 +49,7 @@ export default class App extends Component {
           imagePreview
           handleSubmit={this.handleSubmit}
           fullScreenMode={true}
-          // webMode={true}
+          webMode={true}
         />
       </div>
     );

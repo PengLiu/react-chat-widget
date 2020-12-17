@@ -13,10 +13,21 @@
 
 .rcw-right-sidebar {
   float: left;
+  width: 300px;  
 }
 
 .rcw-custom-logo {
-  background-image: url('../../../../../assets/logo.jpg');
+  width: 100%;
+  margin: auto;
+}
+
+.rcw-custom-icon{
+  width: 50px;
+  vertical-align: middle;
+}
+
+.rcw-custom-link {
+  margin-left: 20px;
 }
 
 .rcw-conversation-container {
