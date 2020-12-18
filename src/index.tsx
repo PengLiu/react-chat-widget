@@ -29,6 +29,7 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
+  sideBar?: any;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -52,7 +53,8 @@ function ConnectedWidget({
   showTimeStamp,
   imagePreview,
   zoomStep,
-  handleSubmit
+  handleSubmit,
+  sideBar,
 }: Props) {
   return (
     <Provider store={store}>
@@ -67,6 +69,7 @@ function ConnectedWidget({
         showCloseButton={showCloseButton}
         fullScreenMode={fullScreenMode}
         webMode={webMode}
+        sideBar={sideBar}
         autofocus={autofocus}
         customLauncher={launcher}
         handleTextInputChange={handleTextInputChange}
@@ -90,6 +93,7 @@ const defaultProps = {
   showCloseButton: true,
   fullScreenMode: false,
   webMode: false,
+  sideBar: null,
   autofocus: true,
   chatId: 'rcw-chat-container',
   launcherOpenLabel: 'Open chat',
